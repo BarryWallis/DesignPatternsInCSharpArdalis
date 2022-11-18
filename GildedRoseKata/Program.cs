@@ -1,13 +1,14 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using GildedRoseKata;
+
+namespace GildedRoseKata;
 
 public class Program
 {
-    public static void Main(string[] args)
+    public static void Main()
     {
         Console.WriteLine("OMGHAI!");
 
-        IList<Item> Items = new List<Item>{
+        IList<Item> items = new List<Item>{
                 new Item {Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20},
                 new Item {Name = "Aged Brie", SellIn = 2, Quality = 0},
                 new Item {Name = "Elixir of the Mongoose", SellIn = 5, Quality = 7},
@@ -35,16 +36,16 @@ public class Program
 				new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
             };
 
-        var app = new GildedRose(Items);
+        GildedRose app = new(items);
 
 
-        for (var i = 0; i < 31; i++)
+        for (int i = 0; i < 31; i++)
         {
             Console.WriteLine("-------- day " + i + " --------");
             Console.WriteLine("name, sellIn, quality");
-            for (var j = 0; j < Items.Count; j++)
+            for (int j = 0; j < items.Count; j++)
             {
-                System.Console.WriteLine(Items[j].Name + ", " + Items[j].SellIn + ", " + Items[j].Quality);
+                System.Console.WriteLine(items[j].Name + ", " + items[j].SellIn + ", " + items[j].Quality);
             }
             Console.WriteLine("");
             app.UpdateQuality();
